@@ -214,7 +214,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     topRight: Radius.circular(26.0),
                   ),
                   maxHeight: constraint.maxHeight,
-                  minHeight: constraint.maxHeight * 0.27,
+                  minHeight: constraint.maxWidth > 450
+                      ? constraint.maxHeight * 0.11
+                      : constraint.maxHeight * 0.27,
                   panel: Stack(
                     children: [
                       Container(
