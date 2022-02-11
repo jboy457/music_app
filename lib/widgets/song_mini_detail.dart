@@ -53,7 +53,7 @@ class SongMiniPreview extends StatelessWidget {
               Container(
                 height: height! * 0.1,
                 padding: EdgeInsets.only(
-                  top: width! * 0.06,
+                  top: width! > 450 ? width! * 0.02 : width! * 0.06,
                   left: height! * 0.03,
                   right: height! * 0.03,
                 ),
@@ -95,25 +95,34 @@ class SongMiniPreview extends StatelessWidget {
                               )
                             ],
                           ),
+                          if (width! > 450)
+                            SizedBox(
+                              width: width! * 0.1,
+                            ),
+                          if (width! > 450)
+                            PlayAction(
+                              width: width! * 0.4,
+                            ),
                         ],
                       ),
                       const Icon(Icons.favorite),
                     ]),
               ),
-              Transform(
-                alignment: Alignment.center,
-                transform: Matrix4.rotationX(math.pi),
-                child: CustomPaint(
-                  painter: ShapesPainter(),
-                  child: SizedBox(
-                    width: width!,
-                    height: height! * 0.16,
-                    child: PlayAction(
-                      width: width! * 0.6,
+              if (width! < 450)
+                Transform(
+                  alignment: Alignment.center,
+                  transform: Matrix4.rotationX(math.pi),
+                  child: CustomPaint(
+                    painter: ShapesPainter(),
+                    child: SizedBox(
+                      width: width!,
+                      height: height! * 0.16,
+                      child: PlayAction(
+                        width: width! * 0.6,
+                      ),
                     ),
                   ),
                 ),
-              ),
             ]),
           ),
         ),

@@ -31,7 +31,10 @@ class PlayAction extends StatelessWidget {
                 radius: 35,
                 backgroundColor: Colors.white,
                 backgroundImage: const AssetImage(AppImages.play),
-                child: SvgPicture.asset(AppIcons.start)),
+                child: SvgPicture.asset(
+                  AppIcons.start,
+                  width: 30,
+                )),
             SvgPicture.asset(
               AppIcons.skipNext,
             ),
